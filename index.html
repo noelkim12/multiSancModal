@@ -1,0 +1,32 @@
+<!-- html 기본양식 생성 -->
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/global.css">
+        <link rel="stylesheet" href="css/salmon.css">
+        <title>Noel Hotswap</title>
+    </head>
+    <body>
+
+        <div style="margin-top: 4px;">
+            <input type="file" name="files" multiple="multiple" class="multifile"/>
+        </div>
+        <div id="selected-file" class="selected-file"></div>
+
+        <script src="src/noel.hotswap.js"></script>
+        <link rel="stylesheet" href="src/noel.hotswap.css">
+        <script src="src/jquery-3.3.0.min.js"></script>
+        <script src="src/jquery.MultiFile.js"></script>
+        <script src="src/lang/ko.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.multifile').MultiFile({
+                    list: '#selected-file',
+                });
+            });
+        </script>
+    </body>
+</html>

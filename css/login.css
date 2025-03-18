@@ -1,0 +1,78 @@
+@charset "UTF-8";
+/**
+ * Login
+ *
+ * Copyright 2023 Salmon v4.1 (http://www.srpost.co.kr)
+ */
+html#login, #login body { width: 100%; height: 100%; overflow: hidden; }
+#login body { width: 100%; height: 100%; overflow: hidden;background:#212731 url("../../../images/login/bg_back_login.png") center center no-repeat; background-size: cover;}
+html#login a {text-decoration: none;}
+html#login .wrap { width:100%; height:100%;display:table; }    
+.logui_wrap{position:relative;display:inline-block;width:430px;height:670px;margin:0 auto;padding:0;border-radius:8px;background:#fff;box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.1);border-top: 2px solid #0b87a9;}
+.logui_wrap .img{float:right;display:inline-block;vertical-align:top;}
+.loginbox { width:100%; height:100%;text-align:center;vertical-align:middle;display:table-cell;}              
+.logui_box {position:relative;float:left;display:inline-block;width:100%;height:100%;margin:0;padding:40px 40px 0 40px;text-align:center;box-sizing:border-box; }
+.logui_box .logui_tit{margin:44px 0 0 0;padding:0;}    
+.logui_box .logui_tit p {padding:0;margin:0;}   
+.logui_box .logui_tit .logui_name {margin-bottom:10px;/*font-size:34px;*/font-size:24px;color:#333333;line-height:110%;letter-spacing:-1px;}
+.logui_box .logui_tit .logui_text {font-size:17px;color:#8b8b8b;line-height:120%;letter-spacing:-1px;}
+.logui_box .logui_bottom .btn_loguism{display:inline-block;padding:0 45px;height:50px;line-height:48px;font-size:16px;color:#fff;font-weight:bold;text-align:center;border-radius:80px;transition: all .2s ease;background:#0682a5;border:1px solid #0682a5;}
+.logui_box .logui_bottom .btn_loguism:hover {background: #08708d;border: 1px solid #08708d;text-decoration: none;}
+.logui_cont {margin-top:32px;}
+.logui_cont .logint_w{display: flex;width: 100%;height: 100%;background: #f2f4f8;border-radius: 80px;margin-bottom: 8px;vertical-align: middle;font-size: 14px;align-items: center;/* padding: 12px 10px; */}
+.logui_cont .logint_w .tit {width:110px;font-weight: bold;text-align: center;height:48px;line-height: 46px;}
+.logui_cont .logint_w input.logint{width: 68%;font-size: 15px !important;color: #333;letter-spacing: 0px;border: 0;background: transparent;box-sizing: border-box;height: 48px;line-height: 48px;padding-left:10px;}
+.logui_cont .logint_w input.logint::-webkit-input-placeholder{font-size:16px;color:#babec7;letter-spacing:-1px;}
+.logui_cont .logint_w input.logint::-moz-input-placeholder{font-size:16px;color:#babec7;letter-spacing:-1px;}
+.logui_cont .logint_w input.logint:-ms-input-placeholder{font-size:16px;color:#babec7 !important;letter-spacing:-1px;}
+.logui_cont .logint_w input.logint::-ms-input-placeholder{font-size:16px;color:#babec7 !important;letter-spacing:-1px;}
+.logui_cont .logint_w input.logint::input-placeholder{font-size:16px;color:#babec7;letter-spacing:-1px;}
+.logui_cont .chbox {margin:0;padding: 0 15px;font-size:12px;color:#7a8088;text-align: left;}
+.logui_cont .chbox input[type="checkbox"] {width:12px;height:12px;vertical-align:sub;}
+.logui_cont .chbox label {font-size:11px;margin-left:2px;line-height:100%;}        
+.logui_cont .chbox .btn_admin {float:right;color:#408af1;font-weight:bold;text-decoration:underline;}
+.logui_cont .chbox .btn_admin:hover {color:#0267f3;}
+.logui_box .logui_bottom {margin:28px 0 0 0;}
+.logui_box .logui_msg {position:absolute;bottom:35px;margin-left:2px;font-size:12px;color:#666;line-height:160%;}
+.logui_box .logui_msg span {color:#3d4145;}          
+.logui_box .logui_chrome {width: 82px;margin: 0 auto;padding: 3px 0;margin:10px 0 0 135px;}
+.logui_box .logui_info {position: absolute;bottom: 66px;margin-left: 52px;font-size: 12px;color: #666;line-height: 160%;}      
+.logui_box .logui_info ul {list-style: none;}   
+.login_sel {padding: 8px 10px}
+.login_sel optgroup {margin-bottom:8px !important;}
+.login_sel option {margin-bottom:4px;}
+.login_sel optgroup option {margin:4px 10px;}
+.sm-hidden {display: none; }
+img.logo_r {margin:0 auto;text-align: center;}
+
+
+.pw_box {height: 520px;padding:46px 40px 0 40px;border-top:none;text-align: center;}
+.pw_box input {width:100%;text-align:center;font-size:15px !important;border:1px solid #ccc;height:48px;background:#f2f4f8;border:0;border-radius: 50px;}
+input.yell {background: #f9f5ee;}
+
+.pwui_tit {padding:0 0 30px 0;text-align: center;line-height: 1;letter-spacing: -0.5px;}
+.pwui_tit p {margin: 0;}
+.pwui_tit .tit {font-size:24px;font-weight: bold;text-align: center;letter-spacing: -2px;line-height: 1.4;}
+.pwui_tit .tit strong {color:#fd580f;}
+.pwui_tit .txt {padding-top:12px;font-size:14px;color:#444;}
+.pwui_tit .etc {padding-top:26px;font-size:12px;color:#195eed;line-height: 1.45;}
+.pw_box button {margin:0 2px;padding:10px 24px;font-size:14px !important;}
+.pw_box button.btn-secondary {background:#5b657a;}
+.pw_box button.btn-secondary:hover {background:#485164;}
+.pw_btm_box { width: 426px; margin: 8px auto 0 auto; color:#fff; text-align: right; }
+.pw_btm_box span {color:#fff;opacity: .5;letter-spacing: 0;}
+.pw_btm_box span.text-bold {opacity: .7;}
+
+
+.logui_etc {margin:20px 0 30px 0;padding:0;}
+.logui_etc ul {display: flex;justify-content: center;margin:0;padding:0;} 
+.logui_etc ul li {padding: 0 10px;list-style: none;border-right:1px solid #e5e5e5;line-height: 1;}
+.logui_etc ul li:last-child {border-right:0;}
+.logui_etc ul li a {color:#444;}
+.logui_etc ul li a:hover{color:#0165b5;}
+.logui_telinfo {padding:10px 4px;background: #f2f8f7;border-radius: 14px;}
+.logui_telinfo > div {margin-bottom:4px;font-weight: bold;font-size:13px;color:#373d46;}
+.logui_telinfo ul {margin: 0;padding:0;}
+.logui_telinfo li {color:#545454;list-style: none;letter-spacing: 0;}
+.logui_telinfo li .text-bold {color:#f6761e;}
+

@@ -1,0 +1,159 @@
+@charset "utf-8";
+
+:root, [data-bs-theme=light] {	
+	
+	--bs-blue : #2073e9;
+	--bs-navy : #576778;
+	
+	--bs-focus-ring-color:#eff3fd;
+	--sm-ext-link:#333;
+	
+	--sm--ext-left-bg: #f5f6f8;	
+	
+    --sm-ext-header-bg: #156c85;
+    --sm-ext-header-bottom: #d0d0d0;
+    --sm-ext-nav-dep-bg: #f9fafb;
+    --sm-ext-nav-dep-line: #eaebec;
+    --sm-ext-left-title-bg: #f5f6f8;
+    --sm-ext-left-mnu-odd: #f5f6f8;
+    --sm-ext-left-mnu-even: #ffffff;
+
+    --sm-ext-center-bg: #edeef0;
+    --sm-ext-center-tab-bg: #e1e2e6;
+    --sm-ext-center-tab-item-bg: #e1e2e6;
+    --sm-ext-center-tab-item-color: #727478;
+    --sm-ext-center-tab-item-color-over: #444;
+    --sm-ext-center-tab-active-bg: #fff;
+    --sm-ext-center-tab-span-color : #373737;
+    --sm-ext-footer-bg: #edefef;
+    --sm-ext-xbody-bg: #fff;
+    
+    --sm-panel-header-bg: #edefef;
+    --sm-smgrid-header-bg: #f5f5f5;
+    --sm-smgrid-row-alt-bg: #fafafa;
+    --sm-smgrid-row-selected-bg: #f9f8f0;
+    
+    --sm-tbl-border-top: #111;
+    --sm-tbl-border-bttom: #e2e6e9;
+    --sm-tbl-input-color:#c2c6cb;
+    
+    --sm-tab-active-title: #333;    
+    --sm-tab-active-bg : #515c70;
+    --sm-tab-active-txt : #fff;
+    --sm-tab-active-line : #515c70;
+    --sm-tab-bg-line : #ccc;
+    
+    --sm-ext-title : #343a40;
+    --sm-voc-list-over : #fcfdff;
+    --sm-voc-viewlist-bg : #fff;
+    --sm-voc-viewdetail-bg : #f3f5f8;
+    --sm-voc-list-bg : #f6f9fc;
+    --sm-badge-bg: #fff;
+    
+    --sm-tbl-th-bg : #f1f3f8;
+    --sm-tbl-vw-th-bg : #edf5f4;
+    --sm_tbl-vw_td-bg : #fbf9ee;    
+    
+    --sm-ext-dark-gray : #333; 
+    --sm-ext-dark-gray-44 : #444;
+    --sm-ext-dark-gray-40 : #4e4e4e;    
+    --sm-ext-dark-line : #111;
+    --sm-ext-gray-line: #dfdfdf;
+    
+    --sm-excel-tit-bg1 : #ebeef6;
+    --sm-excel-tit-bg2 : #e9f1f2;
+    --sm-excel-bt-bg : #f8fafb;
+    
+    --sm-card-head-bg : #edeff6;
+    --sm-alert-bg : #f7f9fc;
+    --sm-graph-bg : #f5f7f9;
+    --sm-portlet-tit-bg : #f0f3f6;
+    --sm-portlet-box : #d9dde6;
+    --sm-portlet-th : #f5f6fa;
+    
+    --sm-snb-left-bg : #f6f7fa;
+    --sm-snb-left-nav-bg : #ffffff;
+    --sm-snb-left-nav-box-line : #c6cbd3;
+    --sm-snb-left-txt-over : #3343b7;
+  
+    --sm-level-bg : #f5f7fa;
+  
+}
+
+[data-bs-theme=dark] {
+
+	--bs-focus-ring-color:#323e4a;
+	--sm-ext-link:#aaa;
+	
+	--sm--ext-left-bg: #343a40;
+		
+    --sm-ext-header-bg: #3c4755;
+    --sm-ext-header-bottom: #6c757d;
+    --sm-ext-nav-dep-bg: #0f1113;
+    --sm-ext-nav-dep-line: #2c3238;
+    --sm-ext-left-title-bg: #212529;
+    --sm-ext-left-mnu-odd: #343a40;
+    --sm-ext-left-mnu-even: #212529;
+    
+    --sm-ext-center-bg: #000;
+    --sm-ext-center-tab-bg: #373f4b;
+    --sm-ext-center-tab-item-bg: #373f4b;
+    --sm-ext-center-tab-item-color:#9ca1aa;
+    --sm-ext-center-tab-item-color-over: #bdc1c6;
+    --sm-ext-center-tab-active-bg: #212529;
+    --sm-ext-center-tab-span-color : #dadada;
+    --sm-ext-footer-bg: #343535;
+     --sm-ext-xbody-bg: #212529;
+    
+    --sm-panel-header-bg: #212529;
+    --sm-smgrid-header-bg: #2f3438;
+    --sm-smgrid-row-alt-bg: #313436;
+    --sm-smgrid-row-selected-bg: #203f68;
+        
+    --sm-ext-title : #bbb;
+    --sm-tbl-border-top: #63676c;
+    --sm-tbl-border-bttom: #495057;
+    --sm-tbl-input-color:#adb5bd;
+    
+    --sm-tab-active-title: #fff;
+    --sm-tab-active-bg : #212529;
+    --sm-tab-active-txt : #adb5bd;
+    --sm-tab-active-line : #acb5be;
+    --sm-tab-bg-line : #4f575f;
+    
+    --bs-dark-rgb: 68,68,68;
+    
+    --sm-voc-list-over : #31363c;
+    --sm-voc-viewlist-bg : #212529;
+    --sm-voc-viewdetail-bg : #2f3439;  
+    --sm-voc-list-bg : #212529;
+    --sm-badge-bg: #212529;    
+    
+    --sm-tbl-th-bg : #3d434a;
+    --sm-tbl-vw-th-bg : #303738;
+    --sm_tbl-vw_td-bg : #302f26;
+    
+    --sm-ext-dark-gray : #f7f7f7;
+    --sm-ext-dark-gray-44 : #ccc;
+    --sm-ext-dark-gray-40 : #f7f7f7;
+    --sm-ext-dark-line : #555;
+    --sm-ext-gray-line: #676767;
+    
+     --sm-excel-tit-bg1 : #3b424a;
+     --sm-excel-tit-bg2 : #2d4138;
+     --sm-excel-bt-bg : #2a2f34;
+     
+     --sm-card-head-bg : #252a2e;
+     --sm-alert-bg : #2a2e33;
+     --sm-graph-bg : #15171a;
+     --sm-portlet-tit-bg : #252a2e;
+     --sm-portlet-box : #4b5259;
+     --sm-portlet-th : #15212b;
+     
+     --sm-snb-left-bg : #292c35;
+     --sm-snb-left-nav-bg : #212529;     
+     --sm-snb-left-nav-box-line : #4f5051;
+     --sm-snb-left-txt-over : #ffffff;
+     
+     --sm-level-bg : #3c4147;
+}

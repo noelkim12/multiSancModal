@@ -1,0 +1,8 @@
+@charset "utf-8";
+
+div.selected-dept { border: 1px solid var(--bs-border-color); background-color: var(--bs-light-bg-subtle); padding: 2px 4px; margin-top: 6px; height: 80px; overflow: auto; }
+div.selected-dept div.MultiDept-label {  }
+div.selected-dept div.MultiDept-label a.MultiDept-remove{}
+div.selected-dept div.MultiDept-label a.MultiDept-remove .fa-minus-circle:before {margin-right: 4px; color: #DD4929;}
+div.ui-tabs .precnsltTab {padding: 0px 0px 0px !important;}
+
