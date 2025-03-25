@@ -57,7 +57,7 @@
  * @property {String} sancerId - deptCd, mgrId
  */
 
-(function (root, factory, sancConst) {
+(function (root, factory, sancConst, init) {
     if (!root['$N']) throw new Error('nlib[common.js] is required');
     root['$N']['sanc'] = root['$N']['sanc'] || factory;
     Object.values(sancConst).forEach(_enum => {
@@ -68,7 +68,6 @@
         }
     })
     root['$N']['sancConst'] = root['$N']['sancConst'] || sancConst;
-
 })(window,
     {
 
@@ -944,3 +943,57 @@
 
         }
     });
+
+
+    (function() {
+        class LoadingSpinner extends HTMLElement {
+            connectedCallback() {
+            this.innerHTML = `
+                <svg class="border-spinner" viewBox="0 0 100 100">
+                <defs>
+                    <linearGradient id="fadeGradient">
+                    <stop offset="0%" stop-color="#6BBE66"/>
+                    <stop offset="100%" stop-color="#6BBE66" stop-opacity="0"/>
+                    </linearGradient>
+                </defs>
+                <circle cx="50" cy="50" r="45"></circle>
+                </svg>
+            `;
+            }
+        }
+        class ExecuteBtnArrow extends HTMLElement {
+            connectedCallback() {
+            this.innerHTML = `
+                <svg version="1.1" class="exec-icon" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 92.2 122.88"
+                    style="enable-background:new 0 0 92.2 122.88" xml:space="preserve" >
+                    <style type="text/css">
+                        .st0 {
+                            fill-rule: evenodd;
+                            clip-rule: evenodd;
+                        }
+                    </style>
+                    <g>
+                        <polygon class="st0" points="92.2,60.97 0,122.88 0,0 92.2,60.97" />
+                    </g>
+                </svg>
+            `;
+            }
+        }
+        
+        class MulitSancHeaderIcon extends HTMLElement {
+            connectedCallback() {
+            this.innerHTML = `
+                <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 119.86">
+                    <path
+                        d="M20.72,72a3,3,0,0,1-2.84-3.1,3,3,0,0,1,2.84-3.1H57.47a3,3,0,0,1,2.84,3.1A3,3,0,0,1,57.47,72ZM83.08,95.75c-1-1.53-2.77-3.62-2.77-5.42a2.92,2.92,0,0,1,1.94-2.64c-.09-1.51-.15-3.06-.15-4.59,0-.9,0-1.82.05-2.72A6.52,6.52,0,0,1,82.46,79a9.7,9.7,0,0,1,4.32-5.48,12.28,12.28,0,0,1,2.34-1.12c1.48-.54.76-2.88,2.39-2.91,3.79-.1,10,3.22,12.47,5.86a8.84,8.84,0,0,1,2.49,5.93L106.32,88a2.17,2.17,0,0,1,1.59,1.37c.52,2.1-1.66,4.71-2.67,6.38s-4.5,5.74-4.51,5.78a1.39,1.39,0,0,0,.32.77c5.54,7.62,21.83,1.74,21.83,16.89H65.33c0-15.16,16.29-9.27,21.82-16.89a1.68,1.68,0,0,0,.4-.79c0-.1-4.1-5.12-4.47-5.71Zm8-76.89h10.18A7.16,7.16,0,0,1,106.39,21a7.26,7.26,0,0,1,2.13,5.13V61.9l-6.27-2.46V26.13a1,1,0,0,0-1-1H91V57.88l-6.24,2.46V7.27a1,1,0,0,0-1-1H7.24a1,1,0,0,0-1,1V93.72a1,1,0,0,0,1,1H64.42L62,101H23.66v11.6a1,1,0,0,0,1,1H56.37l-2.46,6.24H24.73a7.31,7.31,0,0,1-7.27-7.28V101H7.27A7.31,7.31,0,0,1,0,93.72V7.27A7.16,7.16,0,0,1,2.14,2.14,7.23,7.23,0,0,1,7.27,0H83.79a7.18,7.18,0,0,1,5.14,2.14,7.27,7.27,0,0,1,2.14,5.13V18.86Zm-70.38,10a3,3,0,0,1-2.85-3.1,3,3,0,0,1,2.85-3.1H69.77a3,3,0,0,1,2.84,3.1,3,3,0,0,1-2.84,3.1Zm0,21.57a3,3,0,0,1-2.85-3.1,3,3,0,0,1,2.85-3.1H69.77a3,3,0,0,1,2.84,3.1,3,3,0,0,1-2.84,3.1Z" />
+                </svg>
+            `;
+            }
+        }
+        
+        // 브라우저에 새로운 커스텀 요소 등록
+        customElements.define('loading-spinner', LoadingSpinner);
+        customElements.define('execute-btn-arrow', ExecuteBtnArrow);
+        customElements.define('multi-sanc-header-icon', MulitSancHeaderIcon);
+    })();

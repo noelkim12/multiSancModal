@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자주 쓰는 결재선 드롭다운</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Malgun Gothic', sans-serif;
+        }
+        
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .dropdown {
+            position: relative;
+            width: 100%;
+        }
+        
+        .dropdown-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 10px 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .dropdown-header:hover {
+            background-color: #f8f8f8;
+        }
+        
+        .dropdown-header-text {
+            display: flex;
+            align-items: center;
+        }
+        
+        .dropdown-header-icon {
+            margin-right: 8px;
+            width: 20px;
+            height: 20px;
+            fill: #666;
+        }
+        
+        .dropdown-arrow {
+            width: 16px;
+            height: 16px;
+            fill: #666;
+            transition: transform 0.2s;
+        }
+        
+        .dropdown-arrow.open {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            margin-top: 5px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
+            display: none;
+        }
+        
+        .dropdown-content.open {
+            display: block;
+        }
+        
+        .dropdown-search {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-search input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .dropdown-list {
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 5px;
+        }
+        
+        .dropdown-section {
+            margin-bottom: 10px;
+        }
+        
+        .dropdown-section-header {
+            padding: 8px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #666;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+        }
+        
+        .dropdown-item {
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .dropdown-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .dropdown-item-title {
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .dropdown-item-actions {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .dropdown-item-action {
+            padding: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        
+        .dropdown-item-action:hover {
+            background-color: #eee;
+        }
+        
+        .dropdown-item-action svg {
+            width: 16px;
+            height: 16px;
+            fill: #666;
+        }
+        
+        .dropdown-item-action.favorite svg {
+            fill: #f8c200;
+        }
+        
+        .dropdown-item-approvers {
+            margin-top: 5px;
+            font-size: 13px;
+            color: #666;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .approver-arrow {
+            margin: 0 5px;
+            color: #999;
+        }
+        
+        .dropdown-footer {
+            padding: 10px;
+            border-top: 1px solid #eee;
+        }
+        
+        .add-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 8px;
+            background-color: #eef5ff;
+            color: #2563eb;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .add-button:hover {
+            background-color: #dbeafe;
+        }
+        
+        .add-button svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+            fill: #2563eb;
+        }
+        
+        .selected-preview {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .selected-preview.active {
+            display: block;
+        }
+        
+        .preview-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .preview-approvers {
+            display: flex;
+            align-items: center;
+        }
+        
+        .preview-approver {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .preview-approver-avatar {
+            width: 32px;
+            height: 32px;
+            background-color: #e0e7ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 4px;
+        }
+        
+        .preview-approver-avatar svg {
+            width: 16px;
+            height: 16px;
+            fill: #4f46e5;
+        }
+        
+        .preview-approver-name {
+            font-size: 11px;
+        }
+        
+        .preview-connector {
+            width: 15px;
+            height: 1px;
+            background-color: #ddd;
+            margin: 0 2px;
+        }
+        
+        .no-results {
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="dropdown" id="approvalDropdown">
+            <div class="dropdown-header" id="dropdownHeader">
+                <div class="dropdown-header-text">
+                    <svg class="dropdown-header-icon" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4zm9-4h-3v-3h-2v3h-3v2h3v3h2v-3h3v-2z"/>
+                    </svg>
+                    <span id="selectedLabel">결재선 선택</span>
+                </div>
+                <svg class="dropdown-arrow" id="dropdownArrow" viewBox="0 0 24 24">
+                    <path d="M7 10l5 5 5-5z"/>
+                </svg>
+            </div>
+            
+            <div class="selected-preview" id="selectedPreview">
+                <div class="preview-title">현재 결재선:</div>
+                <div class="preview-approvers" id="previewApprovers">
+                    <!-- 결재자 미리보기가 여기에 들어갑니다. -->
+                </div>
+            </div>
+            
+            <div class="dropdown-content" id="dropdownContent">
+                <div class="dropdown-search">
+                    <input type="text" placeholder="결재선 검색..." id="searchInput">
+                </div>
+                
+                <div class="dropdown-list" id="dropdownList">
+                    <!-- 결재선 목록이 여기에 들어갑니다. -->
+                </div>
+                
+                <div class="dropdown-footer">
+                    <button class="add-button" id="addButton">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                        새 결재선 추가
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/common.js"></script>
+    <script src="src/dropdown.js"></script>
+    <script>
+        // 샘플 데이터
+        const approvalLines = {
+            favorites: [
+                { 
+                    id: 1, 
+                    name: "일반 구매 결재", 
+                    approvers: [
+                        { id: 101, name: "김부장", department: "구매팀", position: "부장" },
+                        { id: 102, name: "이이사", department: "재무팀", position: "이사" },
+                        { id: 103, name: "박대표", department: "경영진", position: "대표" }
+                    ],
+                    isFavorite: true 
+                },
+                { 
+                    id: 2, 
+                    name: "마케팅 예산 결재", 
+                    approvers: [
+                        { id: 201, name: "정과장", department: "마케팅팀", position: "과장" },
+                        { id: 202, name: "최부장", department: "마케팅팀", position: "부장" },
+                        { id: 203, name: "이이사", department: "재무팀", position: "이사" }
+                    ],
+                    isFavorite: true 
+                },
+                { 
+                    id: 3, 
+                    name: "인사 관련 결재", 
+                    approvers: [
+                        { id: 301, name: "한차장", department: "인사팀", position: "차장" },
+                        { id: 302, name: "노부장", department: "인사팀", position: "부장" },
+                        { id: 303, name: "박대표", department: "경영진", position: "대표" }
+                    ],
+                    isFavorite: true 
+                }
+            ],
+            recent: [
+                { 
+                    id: 4, 
+                    name: "신규 프로젝트 승인", 
+                    approvers: [
+                        { id: 401, name: "김차장", department: "기획팀", position: "차장" },
+                        { id: 402, name: "최부장", department: "마케팅팀", position: "부장" },
+                        { id: 403, name: "이이사", department: "재무팀", position: "이사" },
+                        { id: 404, name: "박대표", department: "경영진", position: "대표" }
+                    ],
+                    isFavorite: false 
+                },
+                { 
+                    id: 5, 
+                    name: "연구개발 예산", 
+                    approvers: [
+                        { id: 501, name: "송팀장", department: "연구소", position: "팀장" },
+                        { id: 502, name: "정부장", department: "연구소", position: "부장" },
+                        { id: 503, name: "이이사", department: "재무팀", position: "이사" }
+                    ],
+                    isFavorite: false 
+                }
+            ]
+        };
+    </script>
+</body>
+</html>
